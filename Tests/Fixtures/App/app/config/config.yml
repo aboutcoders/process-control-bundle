@@ -1,0 +1,11 @@
+framework:
+    secret: Howdy!
+    templating:    { engines: ['php'] }
+    router: { resource: "%kernel.root_dir%/config/routing.yml" }
+
+monolog:
+    handlers:
+        main:
+            type:     stream
+            path:     "%kernel.logs_dir%/%kernel.environment%.log"
+            level:    debug
