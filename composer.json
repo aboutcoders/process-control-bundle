@@ -3,8 +3,8 @@
     "type": "symfony-bundle",
     "description": "A symfony bundle that provides process control",
     "keywords": ["process", "control", "bundle", "symfony", "pcntl"],
-    "homepage": "https://bitbucket.org/hasc/process-control-bundle",
-    "license": "AboutCoders",
+    "homepage": "http://aboutcoders.com",
+    "license": "MIT",
     "authors": [
         {
             "name": "Hannes Schulz",
