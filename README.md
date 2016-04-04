@@ -23,7 +23,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Abc\Bundle\JobBundle\ProcessControlBundle(),
+        new Abc\Bundle\ProcessControlBundle\AbcProcessControlBundle(),
         // ...
     );
 }
