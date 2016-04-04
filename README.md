@@ -1,5 +1,5 @@
-Symfony Job Bundle
-==========================
+Process Control Bundle
+======================
 
 A symfony bundle that allows asynchronous processing of jobs.
 
