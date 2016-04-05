@@ -3,6 +3,8 @@ AbcProcessControlBundle
 
 A symfony bundle that provides process control.
 
+Build Status: [![Build Status](https://travis-ci.org/aboutcoders/process-control-bundle.svg?branch=master)](https://travis-ci.org/aboutcoders/process-control-bundle)
+
 ## Installation
 
 Add the AbcProcessControlBundle to your `composer.json` file
