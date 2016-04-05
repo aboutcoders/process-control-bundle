@@ -1,24 +1,25 @@
-Process Control Bundle
-======================
+AbcProcessControlBundle
+=======================
 
-A symfony bundle that allows asynchronous processing of jobs.
+A symfony bundle that provides process control.
+
+Build Status: [![Build Status](https://travis-ci.org/aboutcoders/process-control-bundle.svg?branch=master)](https://travis-ci.org/aboutcoders/process-control-bundle)
 
 ## Installation
 
-Add the bundle:
+Add the AbcProcessControlBundle to your `composer.json` file
 
-``` json
+```json
 {
     "require": {
-        "aboutcoders/job-bundle": "dev-master"
+        "aboutcoders/process-control-bundle": "~1.0"
     }
 }
 ```
 
-Enable the bundle in the kernel:
+Then include the bundle in the AppKernel.php class
 
-``` php
-# app/AppKernel.php
+```php
 public function registerBundles()
 {
     $bundles = array(
@@ -28,3 +29,7 @@ public function registerBundles()
     );
 }
 ```
+
+## ToDo:
+
+- Add option to register custom controllers in the service container via tags
