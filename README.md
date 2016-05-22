@@ -39,10 +39,9 @@ The AbcProcessControlBundle registers the service `abc.process_control.controlle
     $controller = $container->get('abc.process_control.controller');
     
     if($controller->doExit()){
+        // true if SIGTERM was sent
     }
 ```
-
-
 
 ## ToDo:
 
