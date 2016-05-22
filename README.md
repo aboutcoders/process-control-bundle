@@ -30,6 +30,21 @@ public function registerBundles()
 }
 ```
 
+## Usage
+
+The AbcProcessControlBundle registers the service `abc.process_control.controller` in the service container. This controller is a PCNTL controller that listents to the `SIGTERM` event. So if this event is notified to the process running the symfony application the controller will indicate this:
+
+```php
+
+    $controller = $container->get('abc.process_control.controller');
+    
+    if($controller->doExit()){
+    }
+```
+
+
+
 ## ToDo:
 
+- Add option to configure the events for the PCNTLController
 - Add option to register custom controllers in the service container via tags
