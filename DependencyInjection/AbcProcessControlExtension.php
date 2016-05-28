@@ -20,7 +20,6 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  */
 class AbcProcessControlExtension extends Extension
 {
-    const NAMESPACE_PREFIX = 'abc.job.';
 
     /**
      * {@inheritDoc}
@@ -32,6 +31,8 @@ class AbcProcessControlExtension extends Extension
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $loader->load('service.xml');
+        if($config['register_controller']) {
+            $loader->load('service.xml');
+        }
     }
-} 
+}

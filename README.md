@@ -30,6 +30,15 @@ public function registerBundles()
 }
 ```
 
+## Configuration
+
+Registration of the service `abc.process_control.controller` is enabled by default. However, since PCNTL is only available in PHP CLI environment you can disable registration of the PCNTL controller with the following configuration:
+
+```yaml
+abc_process_control:
+    register_controller: false
+```
+
 ## Usage
 
 The AbcProcessControlBundle registers the service `abc.process_control.controller` in the service container. This controller is a PCNTL controller that listents to the `SIGTERM` event. So if this event is notified to the process running the symfony application the controller will indicate this:
@@ -45,5 +54,4 @@ The AbcProcessControlBundle registers the service `abc.process_control.controlle
 
 ## ToDo:
 
-- Add option to configure the events for the PCNTLController
 - Add option to register custom controllers in the service container via tags

@@ -26,6 +26,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('abc_process_control');
 
+        $rootNode
+            ->children()
+                ->booleanNode('register_controller')
+                    ->defaultTrue()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 } 
