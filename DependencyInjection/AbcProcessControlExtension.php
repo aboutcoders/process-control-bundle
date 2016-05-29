@@ -29,10 +29,11 @@ class AbcProcessControlExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-
         if($config['register_controller']) {
+            $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('service.xml');
+
+            $container->setAlias('abc.process_control.controller', $config['default_controller']);
         }
     }
 }

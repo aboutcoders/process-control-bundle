@@ -12,10 +12,13 @@
 
     <services>
 
-        <service id="abc.process_control.controller" class="Abc\ProcessControl\PcntlController" public="true">
+        <service id="abc.process_control.controller.pcntl" class="Abc\ProcessControl\PcntlController" public="true">
             <argument>%abc.job.process_controller.signals%</argument>
+            <argument type="service" id="abc.process_control.controller.null"/>
             <argument type="service" id="logger" on-invalid="null"/>
         </service>
+
+        <service id="abc.process_control.controller.null" class="Abc\ProcessControl\NullController" public="false"/>
 
     </services>
 

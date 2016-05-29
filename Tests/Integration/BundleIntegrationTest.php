@@ -14,18 +14,29 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Abc\ProcessControl\PcntlController;
+use phpmock\phpunit\PHPMock;
 
 /**
  * @author Hannes Schulz <hannes.schulz@aboutcoders.com>
  */
 class BundleIntegrationTest extends KernelTestCase
 {
+    use PHPMock;
 
-    /** @var Application */
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
+    private $function_exists;
+
+    /**
+     * @var Application
+     */
     private $application;
-    /** @var ContainerInterface */
-    private $container;
 
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
 
     /**
      * {@inheritDoc}
@@ -39,14 +50,24 @@ class BundleIntegrationTest extends KernelTestCase
         $this->application = new Application(static::$kernel);
         $this->application->setAutoExit(false);
         $this->application->setCatchExceptions(false);
+
+        $this->function_exists    = $this->getFunctionMock('Abc\ProcessControl', 'function_exists');
     }
 
-
-    public function testGetProcessController()
+    public function testRegistersInstanceofPcntlController()
     {
         $controller = static::$kernel->getContainer()->get('abc.process_control.controller');
 
-        $this->assertInstanceOf('Abc\ProcessControl\PcntlController', $controller);
+        $this->assertInstanceOf(PcntlController::class, $controller);
     }
 
-} 
+    public function testRegistersPcntlWithFallbackController()
+    {
+        $controller = static::$kernel->getContainer()->get('abc.process_control.controller');
+
+        $this->function_exists->expects($this->any())
+            ->willReturn(false);
+
+        $this->assertEquals(false, $controller->doExit());
+    }
+}

@@ -31,8 +31,11 @@ class Configuration implements ConfigurationInterface
                 ->booleanNode('register_controller')
                     ->defaultTrue()
                 ->end()
+                ->scalarNode('default_controller')
+                    ->defaultValue('abc.process_control.controller.pcntl')
+                ->end()
             ->end();
 
         return $treeBuilder;
     }
-} 
+}
